@@ -9,9 +9,9 @@ Dashboard dynamics:
 
 Skills gained:
   1. Excel: Data cleaning, data formatting, data sorting and filtering
-  2. Database management: Data modelling, database maintenance
-  3. SQL:
-  4. Tableau
+  2. Database management: Data modelling, database design, data integrity, ETL
+  3. SQL: CTE, Window functions, agregate, JOIN
+  4. Tableau: Data analysis, data visualisation, data communication, statistics
 
 The complete project guideline is attached in a PDF file.
 
@@ -21,6 +21,7 @@ Data was obtained from Kaggle. Whilst they were quite cleaned in terms of the co
 
 ### Data Modelling
 Before setting up a database, it's important to visualise the relationship between the datasets. Using draw.sql website, I modelled my AFL database, which was then exported to pgAdmin4.
+
 <img width="532" alt="datamodel" src="https://github.com/user-attachments/assets/bdf0729d-3957-44e0-9561-dd38f2296d00">
 
 ### Data Exploration
@@ -34,6 +35,7 @@ I pulled the required columns and tables from the dataset using postgreSQL. The 
 
 ### Mockup
 A dashboard mock-up is built using Apple's built-in Freeform app. Having a mock-up is super useful for placing containers, which is crucial for perfect alignment of every element on a dashboard.
+
 <img width="570" alt="Screenshot 2024-08-27 at 16 11 14" src="https://github.com/user-attachments/assets/24f7f353-50ab-4b17-b0f4-bbf02923c47f">
 
 ## Dashboard
