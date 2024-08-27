@@ -1,0 +1,75 @@
+CREATE TABLE "Stats"(
+    "game_id" VARCHAR(255) NOT NULL,
+    "team" TEXT NOT NULL,
+    "year" BIGINT NOT NULL,
+    "round" VARCHAR(255) NOT NULL,
+    "player_id" BIGINT NOT NULL,
+    "game_number" BIGINT NOT NULL,
+    "disposals" BIGINT NOT NULL,
+    "kicks" BIGINT NOT NULL,
+    "marks" BIGINT NOT NULL,
+    "handballs" BIGINT NOT NULL,
+    "goals" BIGINT NOT NULL,
+    "behinds" BIGINT NOT NULL,
+    "hit_outs" BIGINT NOT NULL,
+    "tackles" BIGINT NOT NULL,
+    "rebounds" BIGINT NOT NULL,
+    "inside50s" BIGINT NOT NULL,
+    "clearances" BIGINT NOT NULL,
+    "clangers" BIGINT NOT NULL,
+    "frees" BIGINT NOT NULL,
+    "frees_against" BIGINT NOT NULL,
+    "brownlow_votes" BIGINT NOT NULL,
+    "contested_posessions" BIGINT NOT NULL,
+    "uncontested_positions" BIGINT NOT NULL,
+    "contested_marks" BIGINT NOT NULL,
+    "marks_inside50" BIGINT NOT NULL,
+    "one_percenters" BIGINT NOT NULL,
+    "bounces" BIGINT NOT NULL,
+    "goal_assists" BIGINT NOT NULL,
+    "pct_played" BIGINT NOT NULL,
+    "subs" BIGINT NOT NULL
+);
+ALTER TABLE
+    "Stats" ADD PRIMARY KEY("game_id");
+CREATE TABLE "Players"(
+    "player_id" BIGINT NOT NULL,
+    "lastname" TEXT NOT NULL,
+    "firstname" TEXT NOT NULL,
+    "weight" BIGINT NOT NULL,
+    "dob" DATE NOT NULL,
+    "position" TEXT NOT NULL,
+    "origin" TEXT NOT NULL
+);
+ALTER TABLE
+    "Players" ADD PRIMARY KEY("player_id");
+CREATE TABLE "Games"(
+    "game_id" BIGINT NOT NULL,
+    "year" BIGINT NOT NULL,
+    "round" VARCHAR(255) NOT NULL,
+    "date" DATE NOT NULL,
+    "max_temp" DECIMAL(8, 2) NOT NULL,
+    "min_temp" DECIMAL(8, 2) NOT NULL,
+    "rainfall" DECIMAL(8, 2) NOT NULL,
+    "venue" TEXT NOT NULL,
+    "start_time" TIME(0) WITHOUT TIME ZONE NOT NULL,
+    "attendance" BIGINT NOT NULL,
+    "home_team" TEXT NOT NULL,
+    "hometeamscore_QT" VARCHAR(255) NOT NULL,
+    "hometeamscore_HT" VARCHAR(255) NOT NULL,
+    "hometeamscore_3QT" VARCHAR(255) NOT NULL,
+    "hometeamscore_FT" VARCHAR(255) NOT NULL,
+    "hometeamscore" BIGINT NOT NULL,
+    "away_team" TEXT NOT NULL,
+    "awayteamscore_QT" VARCHAR(255) NOT NULL,
+    "awayteamscore_QT awayteamscore_HT" VARCHAR(255) NOT NULL,
+    "awayteamscore_3QT" VARCHAR(255) NOT NULL,
+    "awayteamscore_FT" VARCHAR(255) NOT NULL,
+    "awayteamscor" BIGINT NOT NULL
+);
+ALTER TABLE
+    "Games" ADD PRIMARY KEY("game_id");
+ALTER TABLE
+    "Stats" ADD CONSTRAINT "stats_player_id_foreign" FOREIGN KEY("player_id") REFERENCES "Players"("player_id");
+ALTER TABLE
+    "Games" ADD CONSTRAINT "games_game_id_foreign" FOREIGN KEY("game_id") REFERENCES "Stats"("game_id");
